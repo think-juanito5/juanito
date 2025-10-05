@@ -1,0 +1,7 @@
+services:
+  main:
+    image: cca/pac
+    ports:
+      - ${PORT}:${PORT}
+    env_file:
+      - .env

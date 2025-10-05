@@ -1,0 +1,32 @@
+{
+  "name": "@dbc-tech/datalake",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test **",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "@dbc-tech/http": "workspace:*",
+    "@dbc-tech/logger": "workspace:*",
+    "@dbc-tech/johnny5": "workspace:*",
+    "@dbc-tech/pipedrive": "workspace:*",
+    "elysia": "^1.4.9",
+    "lodash": "^4.17.21",
+    "ts-results-es": "^3.6.1",
+    "drizzle-orm": "^0.30.10",
+    "drizzle-typebox": "^0.1.1",
+    "pg": "^8.16.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

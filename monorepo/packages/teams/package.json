@@ -1,0 +1,32 @@
+{
+  "name": "@dbc-tech/teams",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Teams integration package",
+  "scripts": {
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "elysia": "^1.4.9",
+    "@dbc-tech/logger": "workspace:*",
+    "@dbc-tech/http": "workspace:*"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

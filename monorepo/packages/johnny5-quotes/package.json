@@ -1,0 +1,50 @@
+{
+  "name": "@dbc-tech/johnny5-quotes",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build:bun": "bun build src/index.ts --outdir dist --target bun",
+    "start": "bun run src/index.ts",
+    "watch": "bun --watch src/index.ts",
+    "dev": "bun --watch --inspect src/index.ts",
+    "lint": "biome lint --write",
+    "lint:check": "biome lint",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit",
+    "docker:build": "docker build --pull --no-cache -t cca/integration-quotes .",
+    "compose:test": "docker compose -f docker-compose-test.yml --project-name johnny5-quotes-test up",
+    "compose:test:down": "docker compose -f docker-compose-test.yml --project-name johnny5-quotes-test down",
+    "compose": "docker compose -f docker-compose.yml --project-name johnny5-quotes up",
+    "compose:down": "docker compose -f docker-compose.yml --project-name johnny5-quotes down",
+    "compose:rebuild": "docker compose -f docker-compose.yml --project-name johnny5-quotes up --build -V"
+  },
+  "dependencies": {
+    "@dbc-tech/azure-config": "workspace:*",
+    "@dbc-tech/johnny5": "workspace:*",
+    "@dbc-tech/logger": "workspace:*",
+    "@dbc-tech/cca-common": "workspace:*",
+    "@dbc-tech/pricing": "workspace:*",
+    "@elysiajs/jwt": "^1.4.0",
+    "@elysiajs/swagger": "1.1.1",
+    "@erfanium/fetch-typebox": "^0.2.2",
+    "cockatiel": "^3.2.1",
+    "date-fns": "^3.6.0",
+    "date-holidays": "^3.26.1",
+    "elysia": "^1.4.9",
+    "mongoose": "^8.18.3",
+    "nanoid": "^5.1.6",
+    "serialize-error": "^11.0.3",
+    "ts-results-es": "^3.6.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

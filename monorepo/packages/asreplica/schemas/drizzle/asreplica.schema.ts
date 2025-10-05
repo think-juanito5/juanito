@@ -1,0 +1,945 @@
+import {
+  char,
+  date,
+  integer,
+  numeric,
+  pgTable,
+  text,
+  time,
+  timestamp,
+  varchar,
+} from 'drizzle-orm/pg-core'
+
+export const timeEntry = pgTable('time_entry', {
+  timeEntryId: integer('time_entry_id').notNull(),
+  participantId: integer('participant_id').notNull(),
+  timesheetDate: date('timesheet_date').notNull(),
+  description: varchar('description', { length: 8000 }),
+  notes: varchar('notes', { length: 8000 }),
+  quickCodeId: integer('quick_code_id'),
+  startTime: time('start_time', { precision: 6 }),
+  timerStatus: varchar('timer_status', { length: 8000 }).notNull(),
+  timerStartedClientTimestamp: timestamp('timer_started_client_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  timerDurationSeconds: integer('timer_duration_seconds').notNull(),
+  actualHours: numeric('actual_hours', { precision: 18, scale: 2 }).notNull(),
+  billableHours: numeric('billable_hours', {
+    precision: 18,
+    scale: 2,
+  }).notNull(),
+  utbmsActivityCode: varchar('utbms_activity_code', { length: 8000 }),
+  utbmsTaskCode: varchar('utbms_task_code', { length: 8000 }),
+  utbmsTimekeeperCode: varchar('utbms_timekeeper_code', { length: 8000 }),
+  linkedTaskId: integer('linked_task_id'),
+  linkedActionId: integer('linked_action_id'),
+  linkedEmailId: integer('linked_email_id'),
+  linkedAppointmentId: integer('linked_appointment_id'),
+  linkedAlertId: integer('linked_alert_id'),
+  linkedParticipantId: integer('linked_participant_id'),
+  linkedDocumentLogId: integer('linked_document_log_id'),
+  linkedDocumentTemplateId: integer('linked_document_template_id'),
+  linkedDataCollectionId: integer('linked_data_collection_id'),
+  billingBehavior: varchar('billing_behavior', { length: 8000 }).notNull(),
+  billingFixedFeeActionBehavior: varchar('billing_fixed_fee_action_behavior', {
+    length: 8000,
+  }).notNull(),
+  rateId: integer('rate_id'),
+  rateUnitPrice: numeric('rate_unit_price', { precision: 18, scale: 2 }),
+  rateSource: varchar('rate_source', { length: 8000 }),
+  rateTimestamp: timestamp('rate_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  billableAmountType: varchar('billable_amount_type', {
+    length: 8000,
+  }).notNull(),
+  billableAmount: numeric('billable_amount', {
+    precision: 18,
+    scale: 2,
+  }).notNull(),
+  billingIncomeAccountId: integer('billing_income_account_id'),
+  billingIncomeGstCodeId: integer('billing_income_gst_code_id'),
+  createdTimestamp: timestamp('created_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  createdByParticipantId: integer('created_by_participant_id').notNull(),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  salePurchaseId: integer('sale_purchase_id'),
+  recordVersion: integer('record_version').notNull(),
+  tagId: integer('tag_id'),
+  isBillable: char('is_billable', { length: 1 }).notNull(),
+  deprecatedConfirmedNonBillable: char('deprecated_confirmed_non_billable', {
+    length: 1,
+  }).notNull(),
+  dataImporterId: integer('data_importer_id'),
+  linkedPhoneCallId: integer('linked_phone_call_id'),
+  deprecatedIsOnBillingHold: char('deprecated_is_on_billing_hold', {
+    length: 1,
+  }).notNull(),
+  qboProductServiceId: integer('qbo_product_service_id'),
+})
+
+export const fileNoteTag = pgTable('file_note_tag', {
+  noteId: integer('note_id').notNull(),
+  tagId: integer('tag_id').notNull(),
+})
+
+export const actionType = pgTable('action_type', {
+  actionTypeId: integer('action_type_id').notNull(),
+  actionTypeName: varchar('action_type_name', { length: 8000 }).notNull(),
+  description: varchar('description', { length: 255 }),
+  baseDirectory: varchar('base_directory', { length: 255 }).notNull(),
+  copyrightHolder: text('copyright_holder'),
+  copyrightContact: text('copyright_contact'),
+  copyrightEmailAddress: text('copyright_email_address'),
+  trackTaskTimeActual: char('track_task_time_actual', { length: 1 }).notNull(),
+  trackTaskTimeBillable: char('track_task_time_billable', {
+    length: 1,
+  }).notNull(),
+  enableGanttChart: char('enable_gantt_chart', { length: 1 }).notNull(),
+  useForMarketingCampaigns: char('use_for_marketing_campaigns', {
+    length: 1,
+  }).notNull(),
+  useForMarketingEvents: char('use_for_marketing_events', {
+    length: 1,
+  }).notNull(),
+  useForEmployees: char('use_for_employees', { length: 1 }).notNull(),
+  useForCrm: char('use_for_crm', { length: 1 }).notNull(),
+  disabled: char('disabled', { length: 1 }).notNull(),
+  enableActionImage: char('enable_action_image', { length: 1 }).notNull(),
+  defaultEmailSubject: varchar('default_email_subject', { length: 8000 }),
+  useForDebtCollection: char('use_for_debt_collection', {
+    length: 1,
+  }).notNull(),
+  isBillable: char('is_billable', { length: 1 }).notNull(),
+  billingPreferenceId: integer('billing_preference_id'),
+  allowCloseWithOpenInvoice: char('allow_close_with_open_invoice', {
+    length: 1,
+  }),
+  logoFilename: varchar('logo_filename', { length: 8000 }),
+  customLogoFilename: varchar('custom_logo_filename', { length: 8000 }),
+  customLogoDirectory: varchar('custom_logo_directory', { length: 8000 }),
+  customLogoFileSize: integer('custom_logo_file_size'),
+  customLogoModifiedTimestamp: timestamp('custom_logo_modified_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  templateIdentifier: varchar('template_identifier', { length: 8000 }),
+  applicationIdentifier: varchar('application_identifier', { length: 8000 }),
+  allowInlineCustomizing: char('allow_inline_customizing', {
+    length: 1,
+  }).notNull(),
+  utbmsEnabled: char('utbms_enabled', { length: 1 }).notNull(),
+  defaultTimeRecordActivityMode: varchar('default_time_record_activity_mode', {
+    length: 8000,
+  }).notNull(),
+  utbmsTaskCategoryCode: varchar('utbms_task_category_code', { length: 8000 }),
+  allowCloseWithUnbilledTime: char('allow_close_with_unbilled_time', {
+    length: 1,
+  }).notNull(),
+  isFileReferenceMandatory: char('is_file_reference_mandatory', {
+    length: 1,
+  }).notNull(),
+  isFileReferenceUnique: char('is_file_reference_unique', {
+    length: 1,
+  }).notNull(),
+  limitEditsToEmailAddresses: varchar('limit_edits_to_email_addresses', {
+    length: 8000,
+  }),
+  allowCloseWithUnbilledDisbursement: char(
+    'allow_close_with_unbilled_disbursement',
+    { length: 1 },
+  ).notNull(),
+  showAmlReviewStatus: char('show_aml_review_status', { length: 1 }).notNull(),
+})
+
+export const participantNote = pgTable('participant_note', {
+  noteId: integer('note_id').notNull(),
+  enteredTimeStamp: timestamp('entered_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  noteText: varchar('note_text', { length: 8000 }).notNull(),
+  enteredBy: varchar('entered_by', { length: 8000 }).notNull(),
+  participantId: integer('participant_id').notNull(),
+  noteTimeStamp: timestamp('note_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  securityObjectId: integer('security_object_id'),
+  source: varchar('source', { length: 8000 }).notNull(),
+  enteredByParticipantId: integer('entered_by_participant_id'),
+  dataImporterId: integer('data_importer_id'),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+})
+
+export const dataCollection = pgTable('data_collection', {
+  dataCollectionId: integer('data_collection_id').notNull(),
+  dataCollectionName: varchar('data_collection_name', {
+    length: 8000,
+  }).notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  multipleRecords: char('multiple_records', { length: 1 }).notNull(),
+  description: varchar('description', { length: 8000 }),
+  icon: text('icon'),
+  navbarOrder: integer('navbar_order'),
+  navbarLabel: varchar('navbar_label', { length: 8000 }).notNull(),
+  pluginUrl: varchar('plugin_url', { length: 8000 }),
+  alwaysShowDescriptions: char('always_show_descriptions', { length: 1 }),
+  enableSharingBetweenRelatedActions: char(
+    'enable_sharing_between_related_actions',
+    { length: 1 },
+  ).notNull(),
+})
+
+export const task = pgTable('task', {
+  taskId: integer('task_id').notNull(),
+  actionId: integer('action_id'),
+  taskName: varchar('task_name', { length: 8000 }).notNull(),
+  currentStatus: varchar('current_status', { length: 20 }),
+  priority: varchar('priority', { length: 20 }).notNull(),
+  dueDate: timestamp('due_date', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  createdTimeStamp: timestamp('created_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  startedTimeStamp: timestamp('started_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  completedTimeStamp: timestamp('completed_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  assignedToParticipantId: integer('assigned_to_participant_id').notNull(),
+  completeBeforeEndOfStepNumber: integer('complete_before_end_of_step_number'),
+  completeBeforeStartOfStepNumber: integer(
+    'complete_before_start_of_step_number',
+  ),
+  assignedBy: varchar('assigned_by', { length: 8000 }),
+  zzRateId: integer('zz_rate_id'),
+  zzActualHours: numeric('zz_actual_hours', { precision: 10, scale: 2 }),
+  zzBillableHours: numeric('zz_billable_hours', { precision: 10, scale: 2 }),
+  linkedDocumentTemplateId: integer('linked_document_template_id'),
+  linkedDataCollectionId: integer('linked_data_collection_id'),
+  defaultTaskId: integer('default_task_id'),
+  zzExpectedDurationValue: integer('zz_expected_duration_value'),
+  zzExpectedDurationUnits: varchar('zz_expected_duration_units', {
+    length: 25,
+  }),
+  zzPercentComplete: integer('zz_percent_complete'),
+  zzShowOnGanttChart: char('zz_show_on_gantt_chart', { length: 1 }),
+  zzCannotStartBeforeTimeStamp: timestamp('zz_cannot_start_before_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  description: varchar('description', { length: 8000 }),
+  zzActivityId: integer('zz_activity_id'),
+  tagId: integer('tag_id'),
+  zzIsPartBilled: char('zz_is_part_billed', { length: 1 }),
+  zzConfirmedNonBillable: char('zz_confirmed_non_billable', { length: 1 }),
+  zzConfirmedNonBillableByParticipantId: integer(
+    'zz_confirmed_non_billable_by_participant_id',
+  ),
+  zzConfirmedNonBillableTimestamp: timestamp(
+    'zz_confirmed_non_billable_timestamp',
+    { precision: 6, withTimezone: true, mode: 'string' },
+  ),
+  isOnBillingHold: char('is_on_billing_hold', { length: 1 }),
+  dueDateTrigger: char('due_date_trigger', { length: 1 }).notNull(),
+  triggerDataCollectionId: integer('trigger_data_collection_id'),
+  triggerDataCollectionFieldName: varchar(
+    'trigger_data_collection_field_name',
+    { length: 8000 },
+  ),
+  triggerDaysOffset: integer('trigger_days_offset'),
+  triggerWeekdaysOnly: char('trigger_weekdays_only', { length: 1 }).notNull(),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  zzUtbmsActivityCode: varchar('zz_utbms_activity_code', { length: 8000 }),
+  zzUtbmsTaskCode: varchar('zz_utbms_task_code', { length: 8000 }),
+  zzUtbmsTimekeeperCode: varchar('zz_utbms_timekeeper_code', { length: 8000 }),
+  zzUnitsQuantity: numeric('zz_units_quantity', { precision: 18, scale: 6 }),
+  zzUnitsMinutesPerUnit: numeric('zz_units_minutes_per_unit', {
+    precision: 18,
+    scale: 6,
+  }),
+  taskListId: integer('task_list_id').notNull(),
+  notes: varchar('notes', { length: 8000 }),
+  assignedTimestamp: timestamp('assigned_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  deletedTimestamp: timestamp('deleted_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  hiddenTimestamp: timestamp('hidden_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  createTimeEntryWhenComplete: char('create_time_entry_when_complete', {
+    length: 1,
+  }).notNull(),
+  quickCodeId: integer('quick_code_id'),
+  pluginReference: varchar('plugin_reference', { length: 8000 }),
+  pluginData: varchar('plugin_data', { length: 8000 }),
+  pluginSyncTimestamp: varchar('plugin_sync_timestamp', { length: 8000 }),
+  dataImporterId: integer('data_importer_id'),
+  lastModifiedTimeStamp: timestamp('last_modified_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+})
+
+export const emailTag = pgTable('email_tag', {
+  emailId: integer('email_id').notNull(),
+  tagId: integer('tag_id').notNull(),
+})
+
+export const participantDefaultType = pgTable('participant_default_type', {
+  participantId: integer('participant_id').notNull(),
+  participantTypeId: integer('participant_type_id').notNull(),
+  dataImporterId: integer('data_importer_id'),
+})
+
+export const participantDefaultTypeDataFieldValue = pgTable(
+  'participant_default_type_data_field_value',
+  {
+    participantId: integer('participant_id').notNull(),
+    participantTypeId: integer('participant_type_id').notNull(),
+    participantTypeDataFieldId: integer(
+      'participant_type_data_field_id',
+    ).notNull(),
+    stringValue: text('string_value'),
+  },
+)
+
+export const dataFieldValue = pgTable('data_field_value', {
+  dataCollectionId: integer('data_collection_id').notNull(),
+  dataFieldName: varchar('data_field_name', { length: 50 }).notNull(),
+  recordId: integer('record_id').notNull(),
+  stringValue: text('string_value'),
+  actionId: integer('action_id').notNull(),
+  timestampValue: timestamp('timestamp_value', {
+    precision: 6,
+    mode: 'string',
+  }),
+  decimalValue: numeric('decimal_value', { precision: 18, scale: 6 }),
+  lastModifiedTimeStamp: timestamp('last_modified_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  lastModifiedByUserId: integer('last_modified_by_user_id'),
+  splitId: integer('split_id'),
+})
+
+export const stepTreeJump = pgTable('step_tree_jump', {
+  nodeId: integer('node_id').notNull(),
+  jumpToNodeId: integer('jump_to_node_id').notNull(),
+  weight: integer('weight'),
+  alternateStepNumber: integer('alternate_step_number'),
+})
+
+export const acReceipt = pgTable('ac_receipt', {
+  receiptId: integer('receipt_id').notNull(),
+  transactionId: integer('transaction_id'),
+  templateId: integer('template_id'),
+  receiptNumber: varchar('receipt_number', { length: 255 }).notNull(),
+  receiptIssuedBy: text('receipt_issued_by').notNull(),
+  receiptDate: timestamp('receipt_date', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  amount: numeric('amount', { precision: 12, scale: 2 }).notNull(),
+  receivedFrom: text('received_from').notNull(),
+  beneficiary: text('beneficiary').notNull(),
+  description: text('description'),
+  firstPrintedTimestamp: timestamp('first_printed_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  lastPrintedTimestamp: timestamp('last_printed_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  directory: text('directory'),
+  fileName: text('file_name'),
+  paymentMethod: text('payment_method').notNull(),
+  divisionId: integer('division_id').notNull(),
+  autoNumber: integer('auto_number').notNull(),
+  receiptType: varchar('receipt_type', { length: 8000 }).notNull(),
+  deletedByParticipantId: integer('deleted_by_participant_id'),
+  deletedTimestamp: timestamp('deleted_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  deletedReason: varchar('deleted_reason', { length: 8000 }),
+  deletedTransactionId: integer('deleted_transaction_id'),
+  paymentDate: timestamp('payment_date', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  receiptAccountingDocumentId: integer('receipt_accounting_document_id'),
+})
+
+export const tagLocationTag = pgTable('tag_location_tag', {
+  tagId: integer('tag_id').notNull(),
+  locationName: varchar('location_name', { length: 8000 }).notNull(),
+})
+
+export const dataCollectionRecord = pgTable('data_collection_record', {
+  recordId: integer('record_id').notNull(),
+  dataCollectionId: integer('data_collection_id').notNull(),
+  actionId: integer('action_id').notNull(),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  dataImporterId: integer('data_importer_id'),
+})
+
+export const emailAssociation = pgTable('email_association', {
+  associationId: integer('association_id').notNull(),
+  emailId: integer('email_id').notNull(),
+  participantId: integer('participant_id'),
+  salePurchaseId: integer('sale_purchase_id'),
+  actionId: integer('action_id'),
+  employeeId: integer('employee_id'),
+  payrollId: integer('payroll_id'),
+  alertId: integer('alert_id'),
+  appointmentId: integer('appointment_id'),
+  prospectId: integer('prospect_id'),
+  eventId: integer('event_id'),
+  campaignId: integer('campaign_id'),
+  fileReference: varchar('file_reference', { length: 8000 }),
+})
+
+export const acActionDisbursement = pgTable('ac_action_disbursement', {
+  disbursementId: integer('disbursement_id').notNull(),
+  disbursementTemplateId: integer('disbursement_template_id'),
+  actionId: integer('action_id').notNull(),
+  disbursementDate: date('disbursement_date').notNull(),
+  description: varchar('description', { length: 8000 }),
+  quantity: numeric('quantity', { precision: 16, scale: 6 }).notNull(),
+  uomId: integer('uom_id').notNull(),
+  unitPrice: numeric('unit_price', { precision: 18, scale: 4 }).notNull(),
+  unitPriceIncludesTax: char('unit_price_includes_tax', {
+    length: 1,
+  }).notNull(),
+  gstCodeId: integer('gst_code_id'),
+  defaultIncomeAccountId: integer('default_income_account_id'),
+  saleInvoiceLineItemId: integer('sale_invoice_line_item_id'),
+  enteredByParticipantId: integer('entered_by_participant_id').notNull(),
+  enteredTimestamp: timestamp('entered_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  isPartBilled: char('is_part_billed', { length: 1 }),
+  isOnBillingHold: char('is_on_billing_hold', { length: 1 }),
+  recordVersionNumber: integer('record_version_number').notNull(),
+  utbmsExpenseCode: varchar('utbms_expense_code', { length: 8000 }),
+  depositWithdrawalLineItemId: integer('deposit_withdrawal_line_item_id'),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  importBatchId: varchar('import_batch_id', { length: 8000 }),
+  dataImporterId: integer('data_importer_id'),
+  isFromPurchase: char('is_from_purchase', { length: 1 }).notNull(),
+  vendorReference: varchar('vendor_reference', { length: 8000 }),
+  qboProductServiceId: integer('qbo_product_service_id'),
+})
+
+export const actionParticipant = pgTable('action_participant', {
+  actionId: integer('action_id').notNull(),
+  participantTypeId: integer('participant_type_id').notNull(),
+  participantId: integer('participant_id').notNull(),
+  participantNumber: integer('participant_number').notNull(),
+  hasPortalAccess: char('has_portal_access', { length: 1 }),
+  dataImporterId: integer('data_importer_id'),
+})
+
+export const tagLocation = pgTable('tag_location', {
+  locationName: varchar('location_name', { length: 8000 }).notNull(),
+  description: varchar('description', { length: 8000 }),
+})
+
+export const participant = pgTable('participant', {
+  participantId: integer('participant_id').notNull(),
+  companyFlag: char('company_flag', { length: 1 }).notNull(),
+  companyName: varchar('company_name', { length: 8000 }),
+  salutation: varchar('salutation', { length: 8000 }),
+  firstName: varchar('first_name', { length: 8000 }),
+  middleName: varchar('middle_name', { length: 8000 }),
+  lastName: varchar('last_name', { length: 8000 }),
+  addressLine1: varchar('address_line_1', { length: 8000 }),
+  addressLine2: varchar('address_line_2', { length: 8000 }),
+  city: varchar('city', { length: 8000 }),
+  stateProvince: varchar('state_province', { length: 8000 }),
+  postCode: varchar('post_code', { length: 8000 }),
+  countryId: char('country_id', { length: 2 }).notNull(),
+  mailingAddressLine1: varchar('mailing_address_line_1', { length: 8000 }),
+  mailingAddressLine2: varchar('mailing_address_line_2', { length: 8000 }),
+  mailingCity: varchar('mailing_city', { length: 8000 }),
+  mailingStateProvince: varchar('mailing_state_province', { length: 8000 }),
+  mailingPostCode: varchar('mailing_post_code', { length: 8000 }),
+  mailingCountryId: char('mailing_country_id', { length: 2 }).notNull(),
+  phone1: varchar('phone1', { length: 8000 }),
+  phone1Description: varchar('phone1_description', { length: 8000 }),
+  phone2: varchar('phone2', { length: 8000 }),
+  phone2Description: varchar('phone2_description', { length: 8000 }),
+  phone3: varchar('phone3', { length: 8000 }),
+  phone3Description: varchar('phone3_description', { length: 8000 }),
+  phone4: varchar('phone4', { length: 8000 }),
+  phone4Description: varchar('phone4_description', { length: 8000 }),
+  fax: varchar('fax', { length: 8000 }),
+  textSms: varchar('text_sms', { length: 8000 }),
+  eMail: varchar('e_mail', { length: 8000 }),
+  website: text('website'),
+  occupation: varchar('occupation', { length: 8000 }),
+  taxNumber: varchar('tax_number', { length: 8000 }),
+  dateOfBirth: date('date_of_birth'),
+  maritalStatus: varchar('marital_status', { length: 8000 }),
+  gender: char('gender', { length: 1 }),
+  eMailFormat: varchar('e_mail_format', { length: 20 }),
+  notificationMethod: varchar('notification_method', { length: 20 }),
+  preferredName: varchar('preferred_name', { length: 8000 }),
+  divisionId: integer('division_id'),
+  displayName: varchar('display_name', { length: 8000 }).notNull(),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  privateToParticipantId: integer('private_to_participant_id'),
+  imageDirectory: varchar('image_directory', { length: 8000 }),
+  imageFilename: varchar('image_filename', { length: 8000 }),
+  thumbnailDirectory: varchar('thumbnail_directory', { length: 8000 }),
+  thumbnailFilename: varchar('thumbnail_filename', { length: 8000 }),
+  newsletterSubscriber: char('newsletter_subscriber', { length: 1 }).notNull(),
+  suffix: varchar('suffix', { length: 8000 }),
+  phone1CountryCode: integer('phone1_country_code'),
+  phone2CountryCode: integer('phone2_country_code'),
+  phone3CountryCode: integer('phone3_country_code'),
+  phone4CountryCode: integer('phone4_country_code'),
+  phone1AreaCode: integer('phone1_area_code'),
+  phone2AreaCode: integer('phone2_area_code'),
+  phone3AreaCode: integer('phone3_area_code'),
+  phone4AreaCode: integer('phone4_area_code'),
+  phone1Notes: varchar('phone1_notes', { length: 8000 }),
+  phone2Notes: varchar('phone2_notes', { length: 8000 }),
+  phone3Notes: varchar('phone3_notes', { length: 8000 }),
+  phone4Notes: varchar('phone4_notes', { length: 8000 }),
+  billingPreferenceId: integer('billing_preference_id'),
+  lastModifiedTimestamp: timestamp('last_modified_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  imageSizeTotal: integer('image_size_total'),
+  createdTimestamp: timestamp('created_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  dateOfDeath: date('date_of_death'),
+  county: varchar('county', { length: 8000 }),
+  mailingCounty: varchar('mailing_county', { length: 8000 }),
+  citizenOfCountryId: char('citizen_of_country_id', { length: 2 }),
+  rateSheetPriceGroupId: integer('rate_sheet_price_group_id'),
+  displayInitials: varchar('display_initials', { length: 8000 }),
+  timekeeperIncomeAccountId: integer('timekeeper_income_account_id'),
+  dataImporterId: integer('data_importer_id'),
+  signatureDirectory: varchar('signature_directory', { length: 8000 }),
+  signatureFilename: varchar('signature_filename', { length: 8000 }),
+  signatureHash: varchar('signature_hash', { length: 8000 }),
+  isDeceased: char('is_deceased', { length: 1 }).notNull(),
+  amlVerificationStatus: varchar('aml_verification_status', {
+    length: 8000,
+  }).notNull(),
+  amlVerificationProgress: integer('aml_verification_progress').notNull(),
+  amlRisk: varchar('aml_risk', { length: 8000 }).notNull(),
+  amlNote: varchar('aml_note', { length: 8000 }),
+  genderTypeName: varchar('gender_type_name', { length: 8000 }),
+  aliases: varchar('aliases', { length: 8000 }),
+  dateOfBirthStatus: varchar('date_of_birth_status', {
+    length: 8000,
+  }).notNull(),
+  countryIdOfBirth: char('country_id_of_birth', { length: 2 }),
+  classAboriginalStatus: varchar('class_aboriginal_status', { length: 8000 }),
+  classPrimaryLanguage: varchar('class_primary_language', { length: 8000 }),
+  classDisabilityStatus: varchar('class_disability_status', { length: 8000 }),
+  classYearOfArrival: integer('class_year_of_arrival'),
+  mailingCountrySubdivisionId: char('mailing_country_subdivision_id', {
+    length: 3,
+  }),
+  countrySubdivisionId: char('country_subdivision_id', { length: 3 }),
+  countrySubdivisionIdOfBirth: char('country_subdivision_id_of_birth', {
+    length: 3,
+  }),
+  qboProductServiceId: integer('qbo_product_service_id'),
+  debtorStatementEmail: varchar('debtor_statement_email', { length: 8000 }),
+  debtorStatementSendEmail: char('debtor_statement_send_email', { length: 1 }),
+  debtorStatementUsePrimaryEmail: char('debtor_statement_use_primary_email', {
+    length: 1,
+  }),
+})
+
+export const acTransaction = pgTable('ac_transaction', {
+  transactionId: integer('transaction_id').notNull(),
+  divisionId: integer('division_id').notNull(),
+  systemUserParticipantId: integer('system_user_participant_id').notNull(),
+  journalId: integer('journal_id').notNull(),
+  entryTimestamp: timestamp('entry_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  transactionDate: date('transaction_date').notNull(),
+  journalMemo: text('journal_memo').notNull(),
+  associatedParticipantId: integer('associated_participant_id'),
+  associatedParticipantOther: varchar('associated_participant_other', {
+    length: 255,
+  }),
+  templateId: integer('template_id'),
+  sourceEditor: varchar('source_editor', { length: 8000 }),
+  sourceEditorData: varchar('source_editor_data', { length: 8000 }),
+  gstDirection: char('gst_direction', { length: 1 }).notNull(),
+  sessionId: varchar('session_id', { length: 8000 }),
+  reversalTransactionId: integer('reversal_transaction_id'),
+  reversalReason: varchar('reversal_reason', { length: 8000 }),
+  reversalOfTransactionId: integer('reversal_of_transaction_id'),
+  postForSalePurchaseId: integer('post_for_sale_purchase_id'),
+})
+
+export const fileNote = pgTable('file_note', {
+  noteId: integer('note_id').notNull(),
+  actionId: integer('action_id').notNull(),
+  enteredTimeStamp: timestamp('entered_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  noteText: text('note_text').notNull(),
+  participantId: integer('participant_id').notNull(),
+  enteredBy: varchar('entered_by', { length: 100 }),
+  source: varchar('source', { length: 25 }),
+  noteTimeStamp: timestamp('note_time_stamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  securityObjectId: integer('security_object_id'),
+  tagId: integer('tag_id'),
+  documentLogId: integer('document_log_id'),
+  systemChangeType: varchar('system_change_type', { length: 8000 }),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  dataImporterId: integer('data_importer_id'),
+  noteRichText: text('note_rich_text'),
+  isDraft: char('is_draft', { length: 1 }).notNull(),
+})
+
+export const stepSaleStatus = pgTable('step_sale_status', {
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  saleStatus: varchar('sale_status', { length: 25 }).notNull(),
+  startEnd: char('start_end', { length: 1 }).notNull(),
+})
+
+export const stepTrustBankAccount = pgTable('step_trust_bank_account', {
+  stepTrustBankAccountId: integer('step_trust_bank_account_id').notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  trustAccountType: varchar('trust_account_type', { length: 8000 }).notNull(),
+  requiredStatus: varchar('required_status', { length: 8000 }).notNull(),
+})
+
+export const participantType = pgTable('participant_type', {
+  participantTypeId: integer('participant_type_id').notNull(),
+  participantTypeName: varchar('participant_type_name', {
+    length: 8000,
+  }).notNull(),
+  description: varchar('description', { length: 8000 }),
+  isBaseParticipantType: char('is_base_participant_type', {
+    length: 1,
+  }).notNull(),
+  companyFlagValue: char('company_flag_value', { length: 1 }),
+  taxNumberAlias: varchar('tax_number_alias', { length: 8000 }),
+})
+
+export const stepActionType = pgTable('step_action_type', {
+  stepActionTypeId: integer('step_action_type_id').notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  relatedActionTypeId: integer('related_action_type_id').notNull(),
+  isMandatory: char('is_mandatory', { length: 1 }).notNull(),
+})
+
+export const stepDataField = pgTable('step_data_field', {
+  stepDataFieldId: integer('step_data_field_id').notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  dataCollectionId: integer('data_collection_id').notNull(),
+  dataFieldName: varchar('data_field_name', { length: 8000 }).notNull(),
+  isRequired: char('is_required', { length: 1 }).notNull(),
+  displayOrder: integer('display_order').notNull(),
+  overrideDataCollectionName: varchar('override_data_collection_name', {
+    length: 8000,
+  }),
+  overrideLabel: varchar('override_label', { length: 8000 }),
+  overrideDescription: varchar('override_description', { length: 8000 }),
+  defaultValue: varchar('default_value', { length: 8000 }),
+  forceDefaultValue: char('force_default_value', { length: 1 }),
+})
+
+export const action = pgTable('action', {
+  actionId: integer('action_id').notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  actionName: text('action_name').notNull(),
+  fileReference: text('file_reference'),
+  dateCreated: date('date_created').notNull(),
+  assignedToParticipantId: integer('assigned_to_participant_id').notNull(),
+  nodeId: integer('node_id').notNull(),
+  stepNumber: integer('step_number'),
+  actionStatus: varchar('action_status', { length: 25 }),
+  divisionId: integer('division_id').notNull(),
+  priority: integer('priority').notNull(),
+  importExternalReference: varchar('import_external_reference', {
+    length: 8000,
+  }),
+  securityObjectId: integer('security_object_id'),
+  isDeleted: char('is_deleted', { length: 1 }).notNull(),
+  deletedByParticipantId: integer('deleted_by_participant_id'),
+  deletedByName: varchar('deleted_by_name', { length: 8000 }),
+  deletedTimestamp: timestamp('deleted_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }),
+  tagId: integer('tag_id'),
+  imageModifiedIdentifier: varchar('image_modified_identifier', {
+    length: 8000,
+  }),
+  lastActivityTimestamp: timestamp('last_activity_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  overrideIsBillable: char('override_is_billable', { length: 1 }),
+  billingPreferenceId: integer('billing_preference_id'),
+  imageSizeTotal: integer('image_size_total'),
+  statusTimestamp: timestamp('status_timestamp', {
+    precision: 6,
+    withTimezone: true,
+    mode: 'string',
+  }).notNull(),
+  timeRecordActivityMode: varchar('time_record_activity_mode', {
+    length: 8000,
+  }),
+  rateSheetPriceGroupId: integer('rate_sheet_price_group_id'),
+  isRestrictedAccessEnabled: char('is_restricted_access_enabled', {
+    length: 1,
+  }).notNull(),
+  warningMessageText: varchar('warning_message_text', { length: 8000 }),
+  trustBypassInvoicePayHold: char('trust_bypass_invoice_pay_hold', {
+    length: 1,
+  }).notNull(),
+  ebmBillingStatus: varchar('ebm_billing_status', { length: 8000 }),
+  dataImporterId: integer('data_importer_id'),
+  massBillingResponsibleLawyerDisplayName: varchar(
+    'mass_billing_responsible_lawyer_display_name',
+    { length: 8000 },
+  ),
+  massBillingEbmBillingStatus: varchar('mass_billing_ebm_billing_status', {
+    length: 8000,
+  }),
+  massBillingAdditionalCustomerDisplayName: varchar(
+    'mass_billing_additional_customer_display_name',
+    { length: 8000 },
+  ),
+  amlReviewStatus: varchar('aml_review_status', { length: 8000 }).notNull(),
+  massBillingResponsibleLawyerParticipantId: varchar(
+    'mass_billing_responsible_lawyer_participant_id',
+    { length: 8000 },
+  ),
+})
+
+export const tag = pgTable('tag', {
+  tagId: integer('tag_id').notNull(),
+  tagName: varchar('tag_name', { length: 8000 }).notNull(),
+  description: varchar('description', { length: 8000 }),
+  defaultColour: varchar('default_colour', { length: 8000 }).notNull(),
+  iconImage16X16: varchar('icon_image_16x16', { length: 8000 }),
+  iconImage24X24: varchar('icon_image_24x24', { length: 8000 }),
+  iconImage32X32: varchar('icon_image_32x32', { length: 8000 }),
+  parentTagId: integer('parent_tag_id'),
+  customCssStyle: varchar('custom_css_style', { length: 8000 }),
+})
+
+export const actionParticipantDataFieldValue = pgTable(
+  'action_participant_data_field_value',
+  {
+    actionId: integer('action_id').notNull(),
+    participantTypeId: integer('participant_type_id').notNull(),
+    participantId: integer('participant_id').notNull(),
+    participantTypeDataFieldId: integer(
+      'participant_type_data_field_id',
+    ).notNull(),
+    stringValue: text('string_value'),
+  },
+)
+
+export const step = pgTable('step', {
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  stepName: varchar('step_name', { length: 50 }).notNull(),
+  description: varchar('description', { length: 255 }),
+  defaultFileNote: varchar('default_file_note', { length: 255 }),
+  listOrder: integer('list_order'),
+  defaultAssignedToParticipantTypeId: integer(
+    'default_assigned_to_participant_type_id',
+  ),
+  defaultAssignedToParticipantTypeMandatory: char(
+    'default_assigned_to_participant_type_mandatory',
+    { length: 1 },
+  ),
+  defaultActionStatus: varchar('default_action_status', { length: 25 }),
+  preStepFormId: integer('pre_step_form_id'),
+  postStepFormId: integer('post_step_form_id'),
+  canCreateSaleQuote: char('can_create_sale_quote', { length: 1 }).notNull(),
+  canCreateSaleOrder: char('can_create_sale_order', { length: 1 }).notNull(),
+  canCreateSaleInvoice: char('can_create_sale_invoice', {
+    length: 1,
+  }).notNull(),
+  canCreatePurchaseQuote: char('can_create_purchase_quote', {
+    length: 1,
+  }).notNull(),
+  canCreatePurchaseOrder: char('can_create_purchase_order', {
+    length: 1,
+  }).notNull(),
+  canCreatePurchaseInvoice: char('can_create_purchase_invoice', {
+    length: 1,
+  }).notNull(),
+  minActionSaleProbability: integer('min_action_sale_probability'),
+  maxActionSaleProbability: integer('max_action_sale_probability'),
+  fileNoteMinimumLength: integer('file_note_minimum_length').notNull(),
+  showActionSaleProbability: char('show_action_sale_probability', {
+    length: 1,
+  }).notNull(),
+  showActionSaleExpectedSaleAmount: char(
+    'show_action_sale_expected_sale_amount',
+    { length: 1 },
+  ).notNull(),
+  showActionSaleExpectedSaleDate: char('show_action_sale_expected_sale_date', {
+    length: 1,
+  }).notNull(),
+  showActionSaleSalesLeadSourceNotes: char(
+    'show_action_sale_sales_lead_source_notes',
+    { length: 1 },
+  ).notNull(),
+  allowAutoStepChange: char('allow_auto_step_change', { length: 1 }).notNull(),
+  showActionSaleMarketingMedium: char('show_action_sale_marketing_medium', {
+    length: 1,
+  }).notNull(),
+  showActionSalePaymentSchedule: char('show_action_sale_payment_schedule', {
+    length: 1,
+  }),
+  defaultActionSaleExpectedAmount: numeric(
+    'default_action_sale_expected_amount',
+    { precision: 18, scale: 2 },
+  ),
+  forceActionSaleStatus: varchar('force_action_sale_status', { length: 8000 }),
+  showActionSaleLinkedQuote: char('show_action_sale_linked_quote', {
+    length: 1,
+  }),
+  showActionSaleLinkedOrder: char('show_action_sale_linked_order', {
+    length: 1,
+  }),
+  showActionBillingSettings: char('show_action_billing_settings', {
+    length: 1,
+  }),
+  showActionBillingPrintSettings: char('show_action_billing_print_settings', {
+    length: 1,
+  }),
+  showActionBillingEmailSettings: char('show_action_billing_email_settings', {
+    length: 1,
+  }),
+  showActionAml: char('show_action_aml', { length: 1 }),
+})
+
+export const stepParticipantType = pgTable('step_participant_type', {
+  stepParticipantTypeId: integer('step_participant_type_id').notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  participantTypeId: integer('participant_type_id').notNull(),
+  isRequired: char('is_required', { length: 1 }).notNull(),
+  displayOrder: integer('display_order').notNull(),
+})
+
+export const stepTree = pgTable('step_tree', {
+  nodeId: integer('node_id').notNull(),
+  actionTypeId: integer('action_type_id').notNull(),
+  stepNumber: integer('step_number').notNull(),
+  parentNodeId: integer('parent_node_id'),
+  isActive: char('is_active', { length: 1 }).notNull(),
+  weight: integer('weight'),
+})
+
+export const dataField = pgTable('data_field', {
+  dataCollectionId: integer('data_collection_id').notNull(),
+  dataFieldName: varchar('data_field_name', { length: 8000 }).notNull(),
+  dataType: varchar('data_type', { length: 8000 }).notNull(),
+  label: varchar('label', { length: 8000 }).notNull(),
+  formOrder: integer('form_order'),
+  listOrder: integer('list_order'),
+  requiredField: char('required_field', { length: 1 }),
+  width: integer('width'),
+  height: integer('height'),
+  class: text('class'),
+  style: text('style'),
+  description: varchar('description', { length: 8000 }),
+  tagId: integer('tag_id'),
+  customHtmlBelowElement: varchar('custom_html_below_element', {
+    length: 8000,
+  }),
+  customHtmlAboveElement: varchar('custom_html_above_element', {
+    length: 8000,
+  }),
+  showTotalInListView: char('show_total_in_list_view', { length: 1 }),
+  limitToParticipantTypeId: integer('limit_to_participant_type_id'),
+  parentDropdownFieldName: varchar('parent_dropdown_field_name', {
+    length: 8000,
+  }),
+})

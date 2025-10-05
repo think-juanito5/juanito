@@ -1,0 +1,31 @@
+{
+  "name": "@dbc-tech/azure-storage",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Azure Storage utilities package",
+  "scripts": {
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.28.0",
+    "ts-results-es": "^3.6.1"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

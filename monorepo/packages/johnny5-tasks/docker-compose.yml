@@ -1,0 +1,20 @@
+services:
+  main:
+    image: cca/johnny5-tasks
+    ports:
+      - ${PORT}:${PORT}
+    env_file:
+      - .env
+    environment:
+      MONGODB_DSN: mongodb://mongo:27017/johnny5
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:8
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb-data:/data/db
+      - ./mongodb-config:/data/configdb

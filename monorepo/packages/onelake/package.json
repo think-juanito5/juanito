@@ -1,0 +1,32 @@
+{
+  "name": "@dbc-tech/onelake",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.1.0",
+  "scripts": {
+    "dev": "bun run --watch ./index.ts",
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test **",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.12.0",
+    "@azure/storage-file-datalake": "^12.27.0",
+    "@dbc-tech/logger": "workspace:*"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

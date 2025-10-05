@@ -1,0 +1,49 @@
+{
+  "name": "@dbc-tech/sandbox",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "actionstep": "bun run ./actionstep/actionstep.ts",
+    "bark": "bun run ./bark/webhook.ts",
+    "bark:email": "bun run ./bark/mapper.ts",
+    "blobs": "bun run ./cloudflare-r2/blobs.ts",
+    "contract-upload": "bun run ./contracts/upload-contract.ts",
+    "google-places": "bun run ./google/places.ts",
+    "google-validate": "bun run ./google/validate.ts",
+    "mongodb": "bun run ./mongodb/mongodb.ts",
+    "pipedrive-v1": "bun run ./pipedrive/pipedrive-v1.ts",
+    "pipedrive-v2": "bun run ./pipedrive/pipedrive-v2.ts",
+    "pipedrive-v2-persons": "bun run ./pipedrive/pipedrive-v2-persons.ts",
+    "raq": "bun run ./raq/raq.ts",
+    "teams-channel": "bun run ./teams/teams-channel.ts",
+    "teams-chat": "bun run ./teams/teams-chat.ts",
+    "teams-btr": "bun run ./teams/btr.ts",
+    "typeform": "bun run ./typeform/typeform.ts",
+    "dataverse": "bun run ./dataverse/dataverse.ts",
+    "csv": "bun run ./csv/convert-to-json.ts",
+    "json-parse": "bun run ./typebox/json-parse.ts",
+    "pac": "bun run ./pac/index.ts",
+    "btr-franchisee": "bun run ./btr-franchisee/index.ts",
+    "az-config": "bun run ./az-config/config.ts",
+    "sdk-quotes": "bun run ./sdk/sdk.quotes.ts"
+  },
+  "dependencies": {
+    "@open-draft/until": "^2.1.0",
+    "@types/xlsx": "^0.0.36",
+    "csv-parser": "^3.2.0",
+    "date-fns": "^3.6.0",
+    "date-fns-tz": "^3.2.0",
+    "elysia": "^1.3.8",
+    "nanoid": "^5.1.5",
+    "neat-csv": "^7.0.0",
+    "serialize-error": "^11.0.3",
+    "ts-results-es": "^3.6.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

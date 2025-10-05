@@ -1,0 +1,24 @@
+{
+  "name": "@dbc-tech/tools",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "cli": "bun run cli.ts",
+    "sb:dev": "bun cli --cmd sb --configFile ./cli.config --subscription 2e88680f-3b2e-45ba-aa63-ffdb2383dbc1",
+    "sb:stage": "bun cli --cmd sb --configFile ./cli.config --subscription 7def1dda-42c0-4b8b-961a-ba4bef55c4d2",
+    "sb:prod": "bun cli --cmd sb --configFile ./cli.config --subscription d7455dd1-41a1-4e80-ad4f-567bae76961c"
+  },
+  "dependencies": {
+    "@azure/arm-servicebus": "^6.1.0",
+    "@azure/identity": "^4.8.0",
+    "chalk": "^5.4.1",
+    "date-fns": "^3.6.0",
+    "elysia": "^1.2.25"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

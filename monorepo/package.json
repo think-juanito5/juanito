@@ -1,0 +1,34 @@
+{
+  "name": "@dbc-tech/integration-services-monorepo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbc-tech/cca.integration.services"
+  },
+  "private": true,
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome lint --write packages/**",
+    "lint:check": "biome lint --write packages/**",
+    "format": "biome format --write packages/**",
+    "check": "biome check --write packages/**",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test packages/**/src/** packages/johnny5/**",
+    "check:all": "bun check && bun type:check && bun test:unit",
+    "check:monorepo": "bun check:all --filter='./packages/*'",
+    "docker:build:handlers": "docker build --pull -f packages/handlers/Dockerfile -t cca/integration-handlers .",
+    "docker:inspect:handlers": "docker run -it cca/integration-handlers sh",
+    "docker:rm:handlers": "docker image rm cca/integration-handlers --force",
+    "docker:build:services": "docker build --pull -f packages/services/Dockerfile -t cca/integration-services .",
+    "docker:inspect:services": "docker run -it cca/integration-services sh",
+    "docker:rm:services": "docker image rm cca/integration-services --force"
+  },
+  "workspaces": ["packages/*"],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@biomejs/biome": "^1.9.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

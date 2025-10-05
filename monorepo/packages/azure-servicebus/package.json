@@ -1,0 +1,29 @@
+{
+  "name": "@dbc-tech/azure-servicebus",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.1",
+  "description": "Azure Service Bus utilities package",
+  "scripts": {
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "dependencies": {
+    "@azure/service-bus": "^7.9.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

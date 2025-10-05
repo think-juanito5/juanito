@@ -1,0 +1,77 @@
+services:
+  main:
+    build:
+      context: ../../
+      dockerfile: ./packages/johnny5-handlers/Dockerfile
+    ports:
+      - ${PORT}:${PORT}
+      - 3500:3500
+      - 50002:50002
+    env_file:
+      - .env
+    environment:
+      MONGODB_DSN: mongodb://mongo:27017/johnny5
+    depends_on:
+      - mongo
+      - placement
+    networks:
+      - webnet
+
+  mongo:
+    image: mongo:8
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb-data:/data/db
+      - ./mongodb-config:/data/configdb
+    networks:
+      - webnet
+
+  ############################
+  # Dapr sidecar for Handler app
+  ############################
+  nodeapp-dapr:
+    image: 'daprio/daprd'
+    command:
+      [
+        './daprd',
+        '--app-id',
+        'nodeapp',
+        '--app-port',
+        '3000',
+        '--app-protocol',
+        'http',
+        '--placement-host-address',
+        'placement:50006',
+        '--components-path',
+        '/components',
+        '--log-level',
+        'debug',
+      ]
+    volumes:
+      - './components/:/components'
+    depends_on:
+      - main
+    network_mode: 'service:main'
+  ############################
+  # Dapr
+  ############################
+  placement:
+    image: 'daprio/dapr'
+    command: ['./placement', '-port', '50006', '--log-level', 'debug']
+    ports:
+      - 50006:50006
+    networks:
+      - webnet
+  ############################
+  # Redis state store
+  ############################
+  redis:
+    image: redis
+    ports:
+      - 6380:6379
+    networks:
+      - webnet
+networks:
+  webnet:

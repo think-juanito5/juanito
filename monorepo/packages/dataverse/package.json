@@ -1,0 +1,28 @@
+{
+  "name": "@dbc-tech/dataverse",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch ./index.ts",
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "dependencies": {
+    "@azure/msal-node": "3.5.1",
+    "@dbc-tech/http": "workspace:*",
+    "@dbc-tech/logger": "workspace:*",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

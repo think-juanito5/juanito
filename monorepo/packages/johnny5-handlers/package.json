@@ -1,0 +1,63 @@
+{
+  "name": "@dbc-tech/johnny5-handlers",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist",
+    "start": "bun run src/index.ts",
+    "watch": "bun --watch src/index.ts",
+    "lint": "biome lint --write",
+    "lint:check": "biome lint",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit",
+    "docker:build": "docker build --pull --no-cache -t cca/johnny5-handlers .",
+    "compose:test": "docker compose -f docker-compose-test.yml --project-name johnny5-handlers-test up",
+    "compose:test:down": "docker compose -f docker-compose-test.yml --project-name johnny5-handlers-test down",
+    "compose": "docker compose -f docker-compose.yml --project-name johnny5-handlers up",
+    "compose:down": "docker compose -f docker-compose.yml --project-name johnny5-handlers down",
+    "compose:rebuild": "docker compose -f docker-compose.yml --project-name johnny5-handlers up --build -V",
+    "compose:dapr": "docker compose -f docker-compose-dapr.yml --project-name johnny5-handlers-dapr up",
+    "compose:dapr:down": "docker compose -f docker-compose-dapr.yml --project-name johnny5-handlers-dapr down",
+    "compose:dapr:rebuild": "docker compose -f docker-compose-dapr.yml --project-name johnny5-handlers-dapr up --build -V"
+  },
+  "dependencies": {
+    "@dbc-tech/actionstep": "workspace:*",
+    "@dbc-tech/azure-config": "workspace:*",
+    "@dbc-tech/azure-storage": "workspace:*",
+    "@dbc-tech/cca-common": "workspace:*",
+    "@dbc-tech/dataverse": "workspace:*",
+    "@dbc-tech/johnny5-http-service": "workspace:*",
+    "@dbc-tech/http": "workspace:*",
+    "@dbc-tech/johnny5": "workspace:*",
+    "@dbc-tech/johnny5-btr": "workspace:*",
+    "@dbc-tech/johnny5-mongodb": "workspace:*",
+    "@dbc-tech/logger": "workspace:*",
+    "@dbc-tech/opsbi": "workspace:*",
+    "@dbc-tech/pipedrive": "workspace:*",
+    "@dbc-tech/pricing": "workspace:*",
+    "@dbc-tech/typeform": "workspace:*",
+    "@erfanium/fetch-typebox": "^0.2.2",
+    "@sendgrid/mail": "^8.1.6",
+    "cockatiel": "^3.2.1",
+    "date-fns": "^3.6.0",
+    "date-fns-tz": "^3.2.0",
+    "elysia": "^1.4.9",
+    "libphonenumber-js": "^1.12.23",
+    "mongoose": "^8.18.3",
+    "nanoid": "^5.1.6",
+    "serialize-error": "^11.0.3",
+    "ts-results-es": "^3.6.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest",
+    "ts-mockito": "^2.6.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

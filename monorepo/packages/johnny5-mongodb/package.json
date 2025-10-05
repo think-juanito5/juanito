@@ -1,0 +1,27 @@
+{
+  "name": "@dbc-tech/johnny5-mongodb",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "dependencies": {
+    "@dbc-tech/johnny5": "workspace:*",
+    "@dbc-tech/typeform": "workspace:*",
+    "elysia": "^1.4.9",
+    "mongoose": "^8.18.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

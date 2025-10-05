@@ -1,0 +1,28 @@
+{
+  "name": "@dbc-tech/pac",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch --inspect src/index.ts",
+    "build": "bun build src/index.ts --outdir dist",
+    "start": "bun run src/index.ts",
+    "lint": "biome lint --write",
+    "lint:check": "biome lint",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "type:check": "tsc --noEmit",
+    "test:unit": "bun test src/**",
+    "test:int": "bun test tests/int/**",
+    "check:all": "bun lint && bun format && bun type:check && bun test:unit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@elysiajs/jwt": "^1.4.0",
+    "elysia": "^1.4.9"
+  }
+}
