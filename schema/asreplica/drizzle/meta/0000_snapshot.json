@@ -1,0 +1,3905 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "time_entry": {
+      "name": "time_entry",
+      "schema": "",
+      "columns": {
+        "time_entry_id": {
+          "name": "time_entry_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timesheet_date": {
+          "name": "timesheet_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notes": {
+          "name": "notes",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quick_code_id": {
+          "name": "quick_code_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "start_time": {
+          "name": "start_time",
+          "type": "time(6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timer_status": {
+          "name": "timer_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timer_started_client_timestamp": {
+          "name": "timer_started_client_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timer_duration_seconds": {
+          "name": "timer_duration_seconds",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "actual_hours": {
+          "name": "actual_hours",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billable_hours": {
+          "name": "billable_hours",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "utbms_activity_code": {
+          "name": "utbms_activity_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "utbms_task_code": {
+          "name": "utbms_task_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "utbms_timekeeper_code": {
+          "name": "utbms_timekeeper_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_task_id": {
+          "name": "linked_task_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_action_id": {
+          "name": "linked_action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_email_id": {
+          "name": "linked_email_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_appointment_id": {
+          "name": "linked_appointment_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_alert_id": {
+          "name": "linked_alert_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_participant_id": {
+          "name": "linked_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_document_log_id": {
+          "name": "linked_document_log_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_document_template_id": {
+          "name": "linked_document_template_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_data_collection_id": {
+          "name": "linked_data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "billing_behavior": {
+          "name": "billing_behavior",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billing_fixed_fee_action_behavior": {
+          "name": "billing_fixed_fee_action_behavior",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rate_id": {
+          "name": "rate_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rate_unit_price": {
+          "name": "rate_unit_price",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rate_source": {
+          "name": "rate_source",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rate_timestamp": {
+          "name": "rate_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "billable_amount_type": {
+          "name": "billable_amount_type",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billable_amount": {
+          "name": "billable_amount",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billing_income_account_id": {
+          "name": "billing_income_account_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "billing_income_gst_code_id": {
+          "name": "billing_income_gst_code_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_timestamp": {
+          "name": "created_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_by_participant_id": {
+          "name": "created_by_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sale_purchase_id": {
+          "name": "sale_purchase_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "record_version": {
+          "name": "record_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_billable": {
+          "name": "is_billable",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deprecated_confirmed_non_billable": {
+          "name": "deprecated_confirmed_non_billable",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_phone_call_id": {
+          "name": "linked_phone_call_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deprecated_is_on_billing_hold": {
+          "name": "deprecated_is_on_billing_hold",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "qbo_product_service_id": {
+          "name": "qbo_product_service_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "file_note_tag": {
+      "name": "file_note_tag",
+      "schema": "",
+      "columns": {
+        "note_id": {
+          "name": "note_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "action_type": {
+      "name": "action_type",
+      "schema": "",
+      "columns": {
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_name": {
+          "name": "action_type_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "base_directory": {
+          "name": "base_directory",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "copyright_holder": {
+          "name": "copyright_holder",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "copyright_contact": {
+          "name": "copyright_contact",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "copyright_email_address": {
+          "name": "copyright_email_address",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "track_task_time_actual": {
+          "name": "track_task_time_actual",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "track_task_time_billable": {
+          "name": "track_task_time_billable",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "enable_gantt_chart": {
+          "name": "enable_gantt_chart",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "use_for_marketing_campaigns": {
+          "name": "use_for_marketing_campaigns",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "use_for_marketing_events": {
+          "name": "use_for_marketing_events",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "use_for_employees": {
+          "name": "use_for_employees",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "use_for_crm": {
+          "name": "use_for_crm",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "disabled": {
+          "name": "disabled",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "enable_action_image": {
+          "name": "enable_action_image",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "default_email_subject": {
+          "name": "default_email_subject",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "use_for_debt_collection": {
+          "name": "use_for_debt_collection",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_billable": {
+          "name": "is_billable",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billing_preference_id": {
+          "name": "billing_preference_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "allow_close_with_open_invoice": {
+          "name": "allow_close_with_open_invoice",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "logo_filename": {
+          "name": "logo_filename",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_logo_filename": {
+          "name": "custom_logo_filename",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_logo_directory": {
+          "name": "custom_logo_directory",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_logo_file_size": {
+          "name": "custom_logo_file_size",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_logo_modified_timestamp": {
+          "name": "custom_logo_modified_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "template_identifier": {
+          "name": "template_identifier",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "application_identifier": {
+          "name": "application_identifier",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "allow_inline_customizing": {
+          "name": "allow_inline_customizing",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "utbms_enabled": {
+          "name": "utbms_enabled",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "default_time_record_activity_mode": {
+          "name": "default_time_record_activity_mode",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "utbms_task_category_code": {
+          "name": "utbms_task_category_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "allow_close_with_unbilled_time": {
+          "name": "allow_close_with_unbilled_time",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_file_reference_mandatory": {
+          "name": "is_file_reference_mandatory",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_file_reference_unique": {
+          "name": "is_file_reference_unique",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "limit_edits_to_email_addresses": {
+          "name": "limit_edits_to_email_addresses",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "allow_close_with_unbilled_disbursement": {
+          "name": "allow_close_with_unbilled_disbursement",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_aml_review_status": {
+          "name": "show_aml_review_status",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "participant_note": {
+      "name": "participant_note",
+      "schema": "",
+      "columns": {
+        "note_id": {
+          "name": "note_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entered_time_stamp": {
+          "name": "entered_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note_text": {
+          "name": "note_text",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entered_by": {
+          "name": "entered_by",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note_time_stamp": {
+          "name": "note_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "security_object_id": {
+          "name": "security_object_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source": {
+          "name": "source",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entered_by_participant_id": {
+          "name": "entered_by_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "data_collection": {
+      "name": "data_collection",
+      "schema": "",
+      "columns": {
+        "data_collection_id": {
+          "name": "data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_collection_name": {
+          "name": "data_collection_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "multiple_records": {
+          "name": "multiple_records",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "icon": {
+          "name": "icon",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "navbar_order": {
+          "name": "navbar_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "navbar_label": {
+          "name": "navbar_label",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "plugin_url": {
+          "name": "plugin_url",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "always_show_descriptions": {
+          "name": "always_show_descriptions",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "enable_sharing_between_related_actions": {
+          "name": "enable_sharing_between_related_actions",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "columns": {
+      "name": "columns",
+      "schema": "",
+      "columns": {
+        "table_catalog": {
+          "name": "table_catalog",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "table_schema": {
+          "name": "table_schema",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "table_name": {
+          "name": "table_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "column_name": {
+          "name": "column_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ordinal_position": {
+          "name": "ordinal_position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "column_default": {
+          "name": "column_default",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_nullable": {
+          "name": "is_nullable",
+          "type": "varchar(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_type": {
+          "name": "data_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "character_maximum_length": {
+          "name": "character_maximum_length",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "character_octet_length": {
+          "name": "character_octet_length",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "numeric_precision": {
+          "name": "numeric_precision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "numeric_precision_radix": {
+          "name": "numeric_precision_radix",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "numeric_scale": {
+          "name": "numeric_scale",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "datetime_precision": {
+          "name": "datetime_precision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "interval_type": {
+          "name": "interval_type",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "interval_precision": {
+          "name": "interval_precision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "character_set_catalog": {
+          "name": "character_set_catalog",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "character_set_schema": {
+          "name": "character_set_schema",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "character_set_name": {
+          "name": "character_set_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "collation_catalog": {
+          "name": "collation_catalog",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "collation_schema": {
+          "name": "collation_schema",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "collation_name": {
+          "name": "collation_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "domain_catalog": {
+          "name": "domain_catalog",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "domain_schema": {
+          "name": "domain_schema",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "domain_name": {
+          "name": "domain_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "udt_catalog": {
+          "name": "udt_catalog",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "udt_schema": {
+          "name": "udt_schema",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "udt_name": {
+          "name": "udt_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scope_catalog": {
+          "name": "scope_catalog",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scope_schema": {
+          "name": "scope_schema",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scope_name": {
+          "name": "scope_name",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "maximum_cardinality": {
+          "name": "maximum_cardinality",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dtd_identifier": {
+          "name": "dtd_identifier",
+          "type": "name",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_self_referencing": {
+          "name": "is_self_referencing",
+          "type": "varchar(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_identity": {
+          "name": "is_identity",
+          "type": "varchar(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identity_generation": {
+          "name": "identity_generation",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identity_start": {
+          "name": "identity_start",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identity_increment": {
+          "name": "identity_increment",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identity_maximum": {
+          "name": "identity_maximum",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identity_minimum": {
+          "name": "identity_minimum",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "identity_cycle": {
+          "name": "identity_cycle",
+          "type": "varchar(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_generated": {
+          "name": "is_generated",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "generation_expression": {
+          "name": "generation_expression",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_updatable": {
+          "name": "is_updatable",
+          "type": "varchar(3)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "task": {
+      "name": "task",
+      "schema": "",
+      "columns": {
+        "task_id": {
+          "name": "task_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "task_name": {
+          "name": "task_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "current_status": {
+          "name": "current_status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "priority": {
+          "name": "priority",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "due_date": {
+          "name": "due_date",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_time_stamp": {
+          "name": "created_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "started_time_stamp": {
+          "name": "started_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "completed_time_stamp": {
+          "name": "completed_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "assigned_to_participant_id": {
+          "name": "assigned_to_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "complete_before_end_of_step_number": {
+          "name": "complete_before_end_of_step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "complete_before_start_of_step_number": {
+          "name": "complete_before_start_of_step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "assigned_by": {
+          "name": "assigned_by",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_rate_id": {
+          "name": "zz_rate_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_actual_hours": {
+          "name": "zz_actual_hours",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_billable_hours": {
+          "name": "zz_billable_hours",
+          "type": "numeric(10, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_document_template_id": {
+          "name": "linked_document_template_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "linked_data_collection_id": {
+          "name": "linked_data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_task_id": {
+          "name": "default_task_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_expected_duration_value": {
+          "name": "zz_expected_duration_value",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_expected_duration_units": {
+          "name": "zz_expected_duration_units",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_percent_complete": {
+          "name": "zz_percent_complete",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_show_on_gantt_chart": {
+          "name": "zz_show_on_gantt_chart",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_cannot_start_before_time_stamp": {
+          "name": "zz_cannot_start_before_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_activity_id": {
+          "name": "zz_activity_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_is_part_billed": {
+          "name": "zz_is_part_billed",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_confirmed_non_billable": {
+          "name": "zz_confirmed_non_billable",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_confirmed_non_billable_by_participant_id": {
+          "name": "zz_confirmed_non_billable_by_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_confirmed_non_billable_timestamp": {
+          "name": "zz_confirmed_non_billable_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_on_billing_hold": {
+          "name": "is_on_billing_hold",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "due_date_trigger": {
+          "name": "due_date_trigger",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "trigger_data_collection_id": {
+          "name": "trigger_data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "trigger_data_collection_field_name": {
+          "name": "trigger_data_collection_field_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "trigger_days_offset": {
+          "name": "trigger_days_offset",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "trigger_weekdays_only": {
+          "name": "trigger_weekdays_only",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_utbms_activity_code": {
+          "name": "zz_utbms_activity_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_utbms_task_code": {
+          "name": "zz_utbms_task_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_utbms_timekeeper_code": {
+          "name": "zz_utbms_timekeeper_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_units_quantity": {
+          "name": "zz_units_quantity",
+          "type": "numeric(18, 6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "zz_units_minutes_per_unit": {
+          "name": "zz_units_minutes_per_unit",
+          "type": "numeric(18, 6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "task_list_id": {
+          "name": "task_list_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "notes": {
+          "name": "notes",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "assigned_timestamp": {
+          "name": "assigned_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deleted_timestamp": {
+          "name": "deleted_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hidden_timestamp": {
+          "name": "hidden_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "create_time_entry_when_complete": {
+          "name": "create_time_entry_when_complete",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quick_code_id": {
+          "name": "quick_code_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "plugin_reference": {
+          "name": "plugin_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "plugin_data": {
+          "name": "plugin_data",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "plugin_sync_timestamp": {
+          "name": "plugin_sync_timestamp",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_modified_time_stamp": {
+          "name": "last_modified_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "email_tag": {
+      "name": "email_tag",
+      "schema": "",
+      "columns": {
+        "email_id": {
+          "name": "email_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "participant_default_type": {
+      "name": "participant_default_type",
+      "schema": "",
+      "columns": {
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_id": {
+          "name": "participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "participant_default_type_data_field_value": {
+      "name": "participant_default_type_data_field_value",
+      "schema": "",
+      "columns": {
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_id": {
+          "name": "participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_data_field_id": {
+          "name": "participant_type_data_field_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "string_value": {
+          "name": "string_value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "data_field_value": {
+      "name": "data_field_value",
+      "schema": "",
+      "columns": {
+        "data_collection_id": {
+          "name": "data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_field_name": {
+          "name": "data_field_name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "record_id": {
+          "name": "record_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "string_value": {
+          "name": "string_value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timestamp_value": {
+          "name": "timestamp_value",
+          "type": "timestamp(6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "decimal_value": {
+          "name": "decimal_value",
+          "type": "numeric(18, 6)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_modified_time_stamp": {
+          "name": "last_modified_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_modified_by_user_id": {
+          "name": "last_modified_by_user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "split_id": {
+          "name": "split_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_tree_jump": {
+      "name": "step_tree_jump",
+      "schema": "",
+      "columns": {
+        "node_id": {
+          "name": "node_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jump_to_node_id": {
+          "name": "jump_to_node_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weight": {
+          "name": "weight",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alternate_step_number": {
+          "name": "alternate_step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ac_receipt": {
+      "name": "ac_receipt",
+      "schema": "",
+      "columns": {
+        "receipt_id": {
+          "name": "receipt_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_id": {
+          "name": "transaction_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "template_id": {
+          "name": "template_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "receipt_number": {
+          "name": "receipt_number",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receipt_issued_by": {
+          "name": "receipt_issued_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receipt_date": {
+          "name": "receipt_date",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount": {
+          "name": "amount",
+          "type": "numeric(12, 2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "received_from": {
+          "name": "received_from",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "beneficiary": {
+          "name": "beneficiary",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "first_printed_timestamp": {
+          "name": "first_printed_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_printed_timestamp": {
+          "name": "last_printed_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "directory": {
+          "name": "directory",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "file_name": {
+          "name": "file_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "payment_method": {
+          "name": "payment_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "division_id": {
+          "name": "division_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "auto_number": {
+          "name": "auto_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receipt_type": {
+          "name": "receipt_type",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deleted_by_participant_id": {
+          "name": "deleted_by_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deleted_timestamp": {
+          "name": "deleted_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deleted_reason": {
+          "name": "deleted_reason",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deleted_transaction_id": {
+          "name": "deleted_transaction_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "payment_date": {
+          "name": "payment_date",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receipt_accounting_document_id": {
+          "name": "receipt_accounting_document_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tag_location_tag": {
+      "name": "tag_location_tag",
+      "schema": "",
+      "columns": {
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "location_name": {
+          "name": "location_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "data_collection_record": {
+      "name": "data_collection_record",
+      "schema": "",
+      "columns": {
+        "record_id": {
+          "name": "record_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_collection_id": {
+          "name": "data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "email_association": {
+      "name": "email_association",
+      "schema": "",
+      "columns": {
+        "association_id": {
+          "name": "association_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email_id": {
+          "name": "email_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sale_purchase_id": {
+          "name": "sale_purchase_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "employee_id": {
+          "name": "employee_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "payroll_id": {
+          "name": "payroll_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alert_id": {
+          "name": "alert_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "appointment_id": {
+          "name": "appointment_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "prospect_id": {
+          "name": "prospect_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "event_id": {
+          "name": "event_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "campaign_id": {
+          "name": "campaign_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "file_reference": {
+          "name": "file_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ac_action_disbursement": {
+      "name": "ac_action_disbursement",
+      "schema": "",
+      "columns": {
+        "disbursement_id": {
+          "name": "disbursement_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "disbursement_template_id": {
+          "name": "disbursement_template_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "disbursement_date": {
+          "name": "disbursement_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "numeric(16, 6)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "uom_id": {
+          "name": "uom_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "unit_price": {
+          "name": "unit_price",
+          "type": "numeric(18, 4)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "unit_price_includes_tax": {
+          "name": "unit_price_includes_tax",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gst_code_id": {
+          "name": "gst_code_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_income_account_id": {
+          "name": "default_income_account_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sale_invoice_line_item_id": {
+          "name": "sale_invoice_line_item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "entered_by_participant_id": {
+          "name": "entered_by_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entered_timestamp": {
+          "name": "entered_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_part_billed": {
+          "name": "is_part_billed",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_on_billing_hold": {
+          "name": "is_on_billing_hold",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "record_version_number": {
+          "name": "record_version_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "utbms_expense_code": {
+          "name": "utbms_expense_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deposit_withdrawal_line_item_id": {
+          "name": "deposit_withdrawal_line_item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "import_batch_id": {
+          "name": "import_batch_id",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_from_purchase": {
+          "name": "is_from_purchase",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vendor_reference": {
+          "name": "vendor_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "qbo_product_service_id": {
+          "name": "qbo_product_service_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "action_participant": {
+      "name": "action_participant",
+      "schema": "",
+      "columns": {
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_id": {
+          "name": "participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_number": {
+          "name": "participant_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "has_portal_access": {
+          "name": "has_portal_access",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "awsdms_apply_exceptions": {
+      "name": "awsdms_apply_exceptions",
+      "schema": "",
+      "columns": {
+        "TASK_NAME": {
+          "name": "TASK_NAME",
+          "type": "varchar(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "TABLE_OWNER": {
+          "name": "TABLE_OWNER",
+          "type": "varchar(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "TABLE_NAME": {
+          "name": "TABLE_NAME",
+          "type": "varchar(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ERROR_TIME": {
+          "name": "ERROR_TIME",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "STATEMENT": {
+          "name": "STATEMENT",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ERROR": {
+          "name": "ERROR",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tag_location": {
+      "name": "tag_location",
+      "schema": "",
+      "columns": {
+        "location_name": {
+          "name": "location_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "participant": {
+      "name": "participant",
+      "schema": "",
+      "columns": {
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "company_flag": {
+          "name": "company_flag",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "company_name": {
+          "name": "company_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "salutation": {
+          "name": "salutation",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "middle_name": {
+          "name": "middle_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address_line_1": {
+          "name": "address_line_1",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address_line_2": {
+          "name": "address_line_2",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "city": {
+          "name": "city",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "state_province": {
+          "name": "state_province",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_code": {
+          "name": "post_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "country_id": {
+          "name": "country_id",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mailing_address_line_1": {
+          "name": "mailing_address_line_1",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_address_line_2": {
+          "name": "mailing_address_line_2",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_city": {
+          "name": "mailing_city",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_state_province": {
+          "name": "mailing_state_province",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_post_code": {
+          "name": "mailing_post_code",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_country_id": {
+          "name": "mailing_country_id",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone1": {
+          "name": "phone1",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone1_description": {
+          "name": "phone1_description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone2": {
+          "name": "phone2",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone2_description": {
+          "name": "phone2_description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone3": {
+          "name": "phone3",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone3_description": {
+          "name": "phone3_description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone4": {
+          "name": "phone4",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone4_description": {
+          "name": "phone4_description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fax": {
+          "name": "fax",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "text_sms": {
+          "name": "text_sms",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "e_mail": {
+          "name": "e_mail",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "website": {
+          "name": "website",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "occupation": {
+          "name": "occupation",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tax_number": {
+          "name": "tax_number",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date_of_birth": {
+          "name": "date_of_birth",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "marital_status": {
+          "name": "marital_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gender": {
+          "name": "gender",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "e_mail_format": {
+          "name": "e_mail_format",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "notification_method": {
+          "name": "notification_method",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "preferred_name": {
+          "name": "preferred_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "division_id": {
+          "name": "division_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "display_name": {
+          "name": "display_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "private_to_participant_id": {
+          "name": "private_to_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_directory": {
+          "name": "image_directory",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_filename": {
+          "name": "image_filename",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "thumbnail_directory": {
+          "name": "thumbnail_directory",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "thumbnail_filename": {
+          "name": "thumbnail_filename",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "newsletter_subscriber": {
+          "name": "newsletter_subscriber",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "suffix": {
+          "name": "suffix",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone1_country_code": {
+          "name": "phone1_country_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone2_country_code": {
+          "name": "phone2_country_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone3_country_code": {
+          "name": "phone3_country_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone4_country_code": {
+          "name": "phone4_country_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone1_area_code": {
+          "name": "phone1_area_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone2_area_code": {
+          "name": "phone2_area_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone3_area_code": {
+          "name": "phone3_area_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone4_area_code": {
+          "name": "phone4_area_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone1_notes": {
+          "name": "phone1_notes",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone2_notes": {
+          "name": "phone2_notes",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone3_notes": {
+          "name": "phone3_notes",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "phone4_notes": {
+          "name": "phone4_notes",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "billing_preference_id": {
+          "name": "billing_preference_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_modified_timestamp": {
+          "name": "last_modified_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_size_total": {
+          "name": "image_size_total",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_timestamp": {
+          "name": "created_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "date_of_death": {
+          "name": "date_of_death",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "county": {
+          "name": "county",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_county": {
+          "name": "mailing_county",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "citizen_of_country_id": {
+          "name": "citizen_of_country_id",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rate_sheet_price_group_id": {
+          "name": "rate_sheet_price_group_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "display_initials": {
+          "name": "display_initials",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "timekeeper_income_account_id": {
+          "name": "timekeeper_income_account_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "signature_directory": {
+          "name": "signature_directory",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "signature_filename": {
+          "name": "signature_filename",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "signature_hash": {
+          "name": "signature_hash",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_deceased": {
+          "name": "is_deceased",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aml_verification_status": {
+          "name": "aml_verification_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aml_verification_progress": {
+          "name": "aml_verification_progress",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aml_risk": {
+          "name": "aml_risk",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "aml_note": {
+          "name": "aml_note",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gender_type_name": {
+          "name": "gender_type_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aliases": {
+          "name": "aliases",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date_of_birth_status": {
+          "name": "date_of_birth_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "country_id_of_birth": {
+          "name": "country_id_of_birth",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class_aboriginal_status": {
+          "name": "class_aboriginal_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class_primary_language": {
+          "name": "class_primary_language",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class_disability_status": {
+          "name": "class_disability_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class_year_of_arrival": {
+          "name": "class_year_of_arrival",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mailing_country_subdivision_id": {
+          "name": "mailing_country_subdivision_id",
+          "type": "char(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "country_subdivision_id": {
+          "name": "country_subdivision_id",
+          "type": "char(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "country_subdivision_id_of_birth": {
+          "name": "country_subdivision_id_of_birth",
+          "type": "char(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "qbo_product_service_id": {
+          "name": "qbo_product_service_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "debtor_statement_email": {
+          "name": "debtor_statement_email",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "debtor_statement_send_email": {
+          "name": "debtor_statement_send_email",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "debtor_statement_use_primary_email": {
+          "name": "debtor_statement_use_primary_email",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "ac_transaction": {
+      "name": "ac_transaction",
+      "schema": "",
+      "columns": {
+        "transaction_id": {
+          "name": "transaction_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "division_id": {
+          "name": "division_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "system_user_participant_id": {
+          "name": "system_user_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "journal_id": {
+          "name": "journal_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entry_timestamp": {
+          "name": "entry_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "transaction_date": {
+          "name": "transaction_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "journal_memo": {
+          "name": "journal_memo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "associated_participant_id": {
+          "name": "associated_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "associated_participant_other": {
+          "name": "associated_participant_other",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "template_id": {
+          "name": "template_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_editor": {
+          "name": "source_editor",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_editor_data": {
+          "name": "source_editor_data",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "gst_direction": {
+          "name": "gst_direction",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "session_id": {
+          "name": "session_id",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reversal_transaction_id": {
+          "name": "reversal_transaction_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reversal_reason": {
+          "name": "reversal_reason",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reversal_of_transaction_id": {
+          "name": "reversal_of_transaction_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_for_sale_purchase_id": {
+          "name": "post_for_sale_purchase_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "file_note": {
+      "name": "file_note",
+      "schema": "",
+      "columns": {
+        "note_id": {
+          "name": "note_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entered_time_stamp": {
+          "name": "entered_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "note_text": {
+          "name": "note_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entered_by": {
+          "name": "entered_by",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source": {
+          "name": "source",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note_time_stamp": {
+          "name": "note_time_stamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "security_object_id": {
+          "name": "security_object_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "document_log_id": {
+          "name": "document_log_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "system_change_type": {
+          "name": "system_change_type",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "note_rich_text": {
+          "name": "note_rich_text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_draft": {
+          "name": "is_draft",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_sale_status": {
+      "name": "step_sale_status",
+      "schema": "",
+      "columns": {
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sale_status": {
+          "name": "sale_status",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "start_end": {
+          "name": "start_end",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_trust_bank_account": {
+      "name": "step_trust_bank_account",
+      "schema": "",
+      "columns": {
+        "step_trust_bank_account_id": {
+          "name": "step_trust_bank_account_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "trust_account_type": {
+          "name": "trust_account_type",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "required_status": {
+          "name": "required_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "participant_type": {
+      "name": "participant_type",
+      "schema": "",
+      "columns": {
+        "participant_type_id": {
+          "name": "participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_name": {
+          "name": "participant_type_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_base_participant_type": {
+          "name": "is_base_participant_type",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "company_flag_value": {
+          "name": "company_flag_value",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tax_number_alias": {
+          "name": "tax_number_alias",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_action_type": {
+      "name": "step_action_type",
+      "schema": "",
+      "columns": {
+        "step_action_type_id": {
+          "name": "step_action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "related_action_type_id": {
+          "name": "related_action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_mandatory": {
+          "name": "is_mandatory",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_data_field": {
+      "name": "step_data_field",
+      "schema": "",
+      "columns": {
+        "step_data_field_id": {
+          "name": "step_data_field_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_collection_id": {
+          "name": "data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_field_name": {
+          "name": "data_field_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_required": {
+          "name": "is_required",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "display_order": {
+          "name": "display_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "override_data_collection_name": {
+          "name": "override_data_collection_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "override_label": {
+          "name": "override_label",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "override_description": {
+          "name": "override_description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_value": {
+          "name": "default_value",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "force_default_value": {
+          "name": "force_default_value",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "action": {
+      "name": "action",
+      "schema": "",
+      "columns": {
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_name": {
+          "name": "action_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "file_reference": {
+          "name": "file_reference",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date_created": {
+          "name": "date_created",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "assigned_to_participant_id": {
+          "name": "assigned_to_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "node_id": {
+          "name": "node_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "action_status": {
+          "name": "action_status",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "division_id": {
+          "name": "division_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "priority": {
+          "name": "priority",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "import_external_reference": {
+          "name": "import_external_reference",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "security_object_id": {
+          "name": "security_object_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_deleted": {
+          "name": "is_deleted",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "deleted_by_participant_id": {
+          "name": "deleted_by_participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deleted_by_name": {
+          "name": "deleted_by_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "deleted_timestamp": {
+          "name": "deleted_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_modified_identifier": {
+          "name": "image_modified_identifier",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "last_activity_timestamp": {
+          "name": "last_activity_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "override_is_billable": {
+          "name": "override_is_billable",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "billing_preference_id": {
+          "name": "billing_preference_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_size_total": {
+          "name": "image_size_total",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status_timestamp": {
+          "name": "status_timestamp",
+          "type": "timestamp(6) with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "time_record_activity_mode": {
+          "name": "time_record_activity_mode",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rate_sheet_price_group_id": {
+          "name": "rate_sheet_price_group_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_restricted_access_enabled": {
+          "name": "is_restricted_access_enabled",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "warning_message_text": {
+          "name": "warning_message_text",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "trust_bypass_invoice_pay_hold": {
+          "name": "trust_bypass_invoice_pay_hold",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ebm_billing_status": {
+          "name": "ebm_billing_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "data_importer_id": {
+          "name": "data_importer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mass_billing_responsible_lawyer_display_name": {
+          "name": "mass_billing_responsible_lawyer_display_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mass_billing_ebm_billing_status": {
+          "name": "mass_billing_ebm_billing_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mass_billing_additional_customer_display_name": {
+          "name": "mass_billing_additional_customer_display_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "aml_review_status": {
+          "name": "aml_review_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "mass_billing_responsible_lawyer_participant_id": {
+          "name": "mass_billing_responsible_lawyer_participant_id",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "tag": {
+      "name": "tag",
+      "schema": "",
+      "columns": {
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tag_name": {
+          "name": "tag_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_colour": {
+          "name": "default_colour",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "icon_image_16x16": {
+          "name": "icon_image_16x16",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "icon_image_24x24": {
+          "name": "icon_image_24x24",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "icon_image_32x32": {
+          "name": "icon_image_32x32",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "parent_tag_id": {
+          "name": "parent_tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_css_style": {
+          "name": "custom_css_style",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "action_participant_data_field_value": {
+      "name": "action_participant_data_field_value",
+      "schema": "",
+      "columns": {
+        "action_id": {
+          "name": "action_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_id": {
+          "name": "participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_id": {
+          "name": "participant_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_data_field_id": {
+          "name": "participant_type_data_field_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "string_value": {
+          "name": "string_value",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step": {
+      "name": "step",
+      "schema": "",
+      "columns": {
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_name": {
+          "name": "step_name",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_file_note": {
+          "name": "default_file_note",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "list_order": {
+          "name": "list_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_assigned_to_participant_type_id": {
+          "name": "default_assigned_to_participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_assigned_to_participant_type_mandatory": {
+          "name": "default_assigned_to_participant_type_mandatory",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_action_status": {
+          "name": "default_action_status",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "pre_step_form_id": {
+          "name": "pre_step_form_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "post_step_form_id": {
+          "name": "post_step_form_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "can_create_sale_quote": {
+          "name": "can_create_sale_quote",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "can_create_sale_order": {
+          "name": "can_create_sale_order",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "can_create_sale_invoice": {
+          "name": "can_create_sale_invoice",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "can_create_purchase_quote": {
+          "name": "can_create_purchase_quote",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "can_create_purchase_order": {
+          "name": "can_create_purchase_order",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "can_create_purchase_invoice": {
+          "name": "can_create_purchase_invoice",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "min_action_sale_probability": {
+          "name": "min_action_sale_probability",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "max_action_sale_probability": {
+          "name": "max_action_sale_probability",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "file_note_minimum_length": {
+          "name": "file_note_minimum_length",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_action_sale_probability": {
+          "name": "show_action_sale_probability",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_action_sale_expected_sale_amount": {
+          "name": "show_action_sale_expected_sale_amount",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_action_sale_expected_sale_date": {
+          "name": "show_action_sale_expected_sale_date",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_action_sale_sales_lead_source_notes": {
+          "name": "show_action_sale_sales_lead_source_notes",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "allow_auto_step_change": {
+          "name": "allow_auto_step_change",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_action_sale_marketing_medium": {
+          "name": "show_action_sale_marketing_medium",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "show_action_sale_payment_schedule": {
+          "name": "show_action_sale_payment_schedule",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "default_action_sale_expected_amount": {
+          "name": "default_action_sale_expected_amount",
+          "type": "numeric(18, 2)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "force_action_sale_status": {
+          "name": "force_action_sale_status",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_action_sale_linked_quote": {
+          "name": "show_action_sale_linked_quote",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_action_sale_linked_order": {
+          "name": "show_action_sale_linked_order",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_action_billing_settings": {
+          "name": "show_action_billing_settings",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_action_billing_print_settings": {
+          "name": "show_action_billing_print_settings",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_action_billing_email_settings": {
+          "name": "show_action_billing_email_settings",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_action_aml": {
+          "name": "show_action_aml",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_participant_type": {
+      "name": "step_participant_type",
+      "schema": "",
+      "columns": {
+        "step_participant_type_id": {
+          "name": "step_participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "participant_type_id": {
+          "name": "participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_required": {
+          "name": "is_required",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "display_order": {
+          "name": "display_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "step_tree": {
+      "name": "step_tree",
+      "schema": "",
+      "columns": {
+        "node_id": {
+          "name": "node_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_type_id": {
+          "name": "action_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "step_number": {
+          "name": "step_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "parent_node_id": {
+          "name": "parent_node_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weight": {
+          "name": "weight",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "data_field": {
+      "name": "data_field",
+      "schema": "",
+      "columns": {
+        "data_collection_id": {
+          "name": "data_collection_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_field_name": {
+          "name": "data_field_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "data_type": {
+          "name": "data_type",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "form_order": {
+          "name": "form_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "list_order": {
+          "name": "list_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "required_field": {
+          "name": "required_field",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width": {
+          "name": "width",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height": {
+          "name": "height",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "class": {
+          "name": "class",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "style": {
+          "name": "style",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tag_id": {
+          "name": "tag_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_html_below_element": {
+          "name": "custom_html_below_element",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "custom_html_above_element": {
+          "name": "custom_html_above_element",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "show_total_in_list_view": {
+          "name": "show_total_in_list_view",
+          "type": "char(1)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "limit_to_participant_type_id": {
+          "name": "limit_to_participant_type_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "parent_dropdown_field_name": {
+          "name": "parent_dropdown_field_name",
+          "type": "varchar(8000)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
